@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6ed83da8-0ce4-4b43-90e8-026a4f6c7736)
+
 
 Centro Universitário Senac -EAD
 
