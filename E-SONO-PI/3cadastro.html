@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="text-container">
+            <h1>Vamos começar!</h1>
+            <p>Crie uma conta ou faça login e aproveite as funcionalidades</p>
+        </div>
+        </div>  
+            
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab">Login</button>
+                <button class="tab active">Cadastre-se</button>
+            </div>
+
+            <form action="#" method="post">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="e-mail@dominio">
+
+                <label for="password">Senha</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="******">
+                    <span class="show-password"><img src="Ver senha.png" alt="versenha" class="versenha"></span>
+                </div>
+
+                <form action="#" method="post">
+                    <label for="nome">Nome</label>
+                    <input type="nome" id="nome" placeholder="Digite o seu nome">
+
+                    <form action="#" method="post">
+                        <label for="datanascimento">Data de nascimento</label>
+                        <input type="datanascimento" id="datanascimento" placeholder="dd/mm/yyyy">
+                <div class="divider">
+                    <span class="line"></span>
+                </div>
+                <button type="submit" class="btn-login">Avançar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
