@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        #hoursOfSleepChart, #exposureChart {
+            width: 90%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>e-Sono</h1>
+            <button type="submit" class="btnhome">
+                <a href="6home.html">
+                    <img src="home.png" alt="home" class="home">
+                </a>
+            </button>
+        </div>
+
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab2">Monitoramento</button>
+            </div>
+
+            <h2>Horas de sono</h2>
+            <div class="chart-container">
+                <canvas id="hoursOfSleepChart"></canvas>
+            </div>
+
+            <h2>Tempo de exposição ao Smarthphone próximo as horas de dormir no decorrer dos meses</h2>
+            <div class="chart-container">
+                <canvas id="exposureChart"></canvas>
+            </div>
+
+            <h2>*Quanto mais perto do 0 min melhor</h2>
+        </div>
+    </div>
+    <script>
+        const form4Data = JSON.parse(localStorage.getItem('form4Data'));
+        const form5Data = JSON.parse(localStorage.getItem('form5Data'));
+
+        function calculateSleepHours(sleepTime, wakeTime) {
+            const sleepHour = parseInt(sleepTime, 10);
+            const wakeHour = parseInt(wakeTime, 10);
+            let sleepDuration = wakeHour - sleepHour;
+            if (sleepDuration < 0) sleepDuration += 24;
+            return sleepDuration;
+        }
+
+        const sleepHoursWeek = calculateSleepHours(form4Data.p1_1, form4Data.p1_2);
+        const sleepHoursWeekend = calculateSleepHours(form4Data.p1_3, form4Data.p1_4);
+
+        const ctxHours = document.getElementById('hoursOfSleepChart').getContext('2d');
+        const hoursOfSleepChart = new Chart(ctxHours, {
+            type: 'bar',
+            data: {
+                labels: ['Durante a Semana', 'Final de Semana'],
+                datasets: [{
+                    label: 'Horas de Sono',
+                    data: [sleepHoursWeek, sleepHoursWeekend],
+                    backgroundColor: 'rgba(0, 0, 139, 1)',
+                    borderColor: 'rgba(0, 0, 139, 1)',
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        const exposureMinutes = parseInt(form5Data.p2_2, 10);
+        const exposureHours = (exposureMinutes * 30) / 60;
+
+        const ctxExposure = document.getElementById('exposureChart').getContext('2d');
+        const exposureChart = new Chart(ctxExposure, {
+            type: 'bar',
+            data: {
+                labels: ['Tempo de Exposição'],
+                datasets: [{
+                    label: 'Horas de Exposição ao Smartphone',
+                    data: [exposureHours],
+                    backgroundColor: 'rgba(0, 0, 139, 1)',
+                    borderColor: 'rgba(0, 0, 139, 1)',
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

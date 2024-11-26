@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="text-container">
+            <h1>Vamos começar!</h1>
+            <p>Crie uma conta ou faça login e aproveite as funcionalidades</p>
+        </div>
+        </div>  
+            
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab active">Login</button>
+                <a href="3cadastro.html" class="tab">Cadastre-se</a>
+            </div>
+
+            <form action="#" method="post">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="e-mail@dominio">
+
+                <label for="password">Senha</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="******">
+                    <span class="show-password"><img src="Ver senha.png" alt="versenha" class="versenha"></span>
+                </div>
+
+
+                <div class="login-options">
+                    <div class="checkbox-container">
+                      <input type="checkbox" id="saveLogin">
+                      <label for="saveLogin">Salvar Login</label>
+                    </div>
+                    <a href="2senha.html" class="forgot-password">Esqueceu a senha?</a>
+                  </div>
+
+                  <a href="6home.html" class="btn-login">Entrar</a>
+
+                <div class="divider">
+                    <span class="line"></span>
+                    <span class="text">Ou</span>
+                    <span class="line"></span>
+                </div>
+
+                <button type="button" class="btn-google">Continue com Google</button>
+                <button type="button" class="btn-facebook">Continue com Facebook</button>
+                <button type="button" class="btn-govbr">Continue com Gov.Br</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

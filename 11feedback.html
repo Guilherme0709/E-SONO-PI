@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h4>Feedback</h4>
+            <button type="submit" class="btnhome">
+                <a href="6home.html">
+                    <img src="home.png" alt="home" class="home">
+                </a>
+            </button>
+        </div>
+
+        <div class="form-container">
+            <div class="pequenoespaco2"></div>
+            <div class="tabs">
+                <button class="tab2">Feedback</button>
+            </div>
+
+            <div class="container2">
+                <p>Estamos muito felizes em tê-lo aqui!</p>
+                <p>Avalie a sua experiência com o e-Sono</p>
+                <p>e/ou submeta um feedback!!!</p>
+
+                <!-- Janela de Pop-up -->
+                <div class="popup-overlay" id="popupOverlay"></div>
+                <div class="popup" id="popup">
+                    <h2>Obrigado pelo seu feedback!</h2>
+                    <p>Seu feedback é muito importante para nós.</p>
+                    <button id="closePopup">Fechar</button>
+                </div>
+            </div>
+
+            <div class="pequenoespaco"></div>
+            <img src="5star.png" alt="star" class="star">
+            
+            <div class="tabs">
+                <form action="#" method="post">
+                    <label for="p1.1">Avalie-nos</label>
+                    <input type="text" id="p1.1" placeholder="0 a 10">
+                    <button type="button" class="tab2" id="openPopup">Enviar</button>
+                </form>
+            </div>
+
+            <div class="divider">
+                <span class="line4"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionamento do pop-up
+        const popup = document.getElementById("popup");
+        const popupOverlay = document.getElementById("popupOverlay");
+        const openPopupButton = document.getElementById("openPopup");
+        const closePopupButton = document.getElementById("closePopup");
+
+        openPopupButton.addEventListener("click", () => {
+            popup.style.display = "block";
+            popupOverlay.style.display = "block";
+        });
+
+        closePopupButton.addEventListener("click", () => {
+            popup.style.display = "none";
+            popupOverlay.style.display = "none";
+        });
+
+        popupOverlay.addEventListener("click", () => {
+            popup.style.display = "none";
+            popupOverlay.style.display = "none";
+        });
+    </script>
+</body>
+</html>
+
